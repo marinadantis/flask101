@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title></title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+    </head>
+    <body>
+        <form>
+            <button id="getTimeBtn" type="button">Get Time</button>
+            <br>
+            <span id="timeSpan1"></span>
+        </form>
+            <br>
+            <br>
+        <form>
+            <!--Enter timezone: <input type="text" name="timezone" id="timezone"><br>-->
+            <select name="timezone" id="timezone">
+                {% for timezone in timezones %}
+                <option value="{{ timezone }}">{{ timezone }}</option>
+                {% endfor %}
+            </select>
+            <button id="submit" type="button">Submit</button>
+            <br>
+            <span id="timeSpan2"></span>
+        </form>
+    </body>
+</html>
