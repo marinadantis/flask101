@@ -24,5 +24,33 @@
             <br>
             <span id="timeSpan2"></span>
         </form>
+            <br>
+            <br>
+        <form>
+            <label for="time">Input time:</label>
+            <input type="datetime" id="time" name="time"
+                   min="00:00" max="23:59" required>
+            <br>
+            <br>
+            <label for="input_tz">Input timezone:</label>
+            <select name="input_tz" id="input_tz">
+                {% for timezone in timezones %}
+                <option value="{{ timezone }}">{{ timezone }}</option>
+                {% endfor %}
+            </select>
+            <br>
+            <br>
+            <label for="output_tz">Output timezone:</label>
+            <select name="output_tz" id="output_tz">
+                {% for timezone in timezones %}
+                <option value="{{ timezone }}">{{ timezone }}</option>
+                {% endfor %}
+            </select>
+            <br>
+            <br>
+            <button id="submit1" type="button">Submit</button>
+            <br>
+            <span id="timeSpan3"></span>
+        </form>
     </body>
 </html>

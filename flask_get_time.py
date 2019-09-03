@@ -40,6 +40,25 @@ def time_converter():
     })
 
 
+@app.route('/input-time-converter')
+def input_time_converter():
+    dt = request.args.get('dt')
+    tz1 = request.args.get('input_tz')
+    tz2 = request.args.get('output_tz')
+    format = '%Y-%m-%d %H:%M:%S'
+
+    tz1 = pytz.timezone(tz1)
+    tz2 = pytz.timezone(tz2)
+
+    dt = datetime.strptime(dt,format)
+    dt = tz1.localize(dt)
+    dt = dt.astimezone(tz2)
+
+    return jsonify({
+        'time': dt.strftime(format)
+    })
+
+
 if __name__ == '__main__':
     app.run(debug=True)
 
